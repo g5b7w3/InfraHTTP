@@ -1,16 +1,16 @@
 $(function(){
 
-	console.log("Loading students");
+	console.log("Loading city");
 
 
 	function loadStudents(){
-	$.getJSON( "/api/students/", function( students ){
-		console.log(students);
-		var message = "Nobody is here";
-		if ( students.length > 0) {
-		message = students[0].firstName + " " + students[0].lastName;
+	$.getJSON( "/api/students/", function( city ){
+		console.log(city);
+		var message ="Nobody is here";
+		if (city.students > 0){
+		message = city[0];
 		}
-		$(".skills").text(message);
+		$(".skills").text(city);
 	});
 	};
 

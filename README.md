@@ -51,5 +51,5 @@ Pour vérifier le bon fonctionnement de cette étape j'ai annalyser les trames r
 Comme dit plus haut j'ai implémenté cette fonctionnalité en utilisant un hash de l'addressse IP ce qui permet de garentir qu'une addresse IP s'addressera au même SRV sauf si ce dernier devenait inaccessible. </br></br>
 Pour résaliser cette tâche il m'a suffit de rajouter ```hash $remote_addr;``` dans le fichier de configuration de NGINX et de rebuild mon image pour prendre en compte les modifications.</br></br>
 
-Pour vérifier le bon fonctionnment de cette étape j'ai procédé de la même manière qu'a l'étape précédente mais cette fois j'ai vérifié qu'un client soit toujours renvoyé sur le même serveur.</br></br>
+Pour vérifier le bon fonctionnment de cette étape j'ai procédé de la même manière qu'a l'étape précédente mais cette fois j'ai vérifié qu'un client soit toujours renvoyé sur le même serveur.
 

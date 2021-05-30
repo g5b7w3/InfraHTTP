@@ -1,7 +1,7 @@
 # InfraHTTP
 
 ## Introduction
-Les étapes de ce laboratoires sont séparées dans les différentes branches présente sur ce git. La version la plus complète ce trouve sur la branche "main". Il s'agit d'une version du laboratoire offrant un load balancing capable de fonctionné en mopde "Round-Robin" ou "Sticky-Session". </br></br>
+Les étapes de ce laboratoires sont séparées dans les différentes branches présente sur ce git. La version la plus complète ce trouve sur la branche "main". Il s'agit d'une version du laboratoire offrant un load balancing capable de fonctionné en mopde "Round-Robin" ou "Sticky-Session". J'ai du crée [une branch supplémentaire](https://github.com/g5b7w3/InfraHTTP/tree/fb-patch-to-match-requirement) pour modifier le site bootstap ainsi que le contenu renvoyer par le script JS pour ne pas réutiliser ce qui est proposé dans les capsules vidéos. Le contenu final qui se trouve sur "main" prend en compte ces modifications.</br></br>
 
 ## Step 1: Static HTTP server with apache httpd
 Dans cette étape nous devions installé un serveur HTPP qui nous permet d'heberger un site web basique. Le tout dans une image docker.

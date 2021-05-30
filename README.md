@@ -22,12 +22,14 @@ Pour cette partie, nous devons installer un reverse proxy. Pour ce faire on util
 Pour build mon image j'ai utilisé la commande : ```sudo docker build -t res/apache_rp .```</br></br>
 Pour lancer un container avec cette image j'ai utilisé la commande : ```sudo docker run res/apache_rp```</br></br>
 J'ai ajouter une ligne dans mon fichier local "DNS", ```/etc/hosts/```, afin de définir que l'addresse : ```172.17.0.4``` corresponde a : demo.res.ch. L'addrresse IP correspoond a la 3ème addresse données par docker lors du lancement de contenaire. Et comme pour tester le bon fonctionnement j'ai besoin de mes deux images précédemment crée, cette image et la troisième que je lance. Pour l'instant les addresses IP qui répondent au requête sur ```/``` et ```/api/students``` sont écrites en dur dans le fichier de configuration, ce point sera amélioré par la suite.</br></br>
+Afin de conntrôler le bon fonctionnement de tout cela, je me suis connecter dans mon navigateur sur : demo.res.ch</br></br>
 
 ## Step 4: AJAX requests with JQuery
 Pour cette étape nous devions mettre a jour dynamiquement notre site principal. Je me suis fortement inspiré de la vidéo de présentation pour effectuer cette partie. 
 </br></br>
 Toute les 2 secondes une requête est effectuée. Elle permet de récupéré une liste de ville généré par le script JS qui se trouve dans le contenaire ```res/express_students```.</br></br>
 Il a fallut également renseigner, au pieds de la page statique HTML, le chemin d'accès au script JS qui nous permet d'effectuer ces requêtes. Lors de cette étape j'ai également ajouté l'installation de VIM dans mes Dockerfile pour facilité les modifications des fichiers se trouvant à l'intérieur d'un contenaire.</br></br>
+Afin de conntrôler le bon fonctionnement de tout cela, je me suis connecter dans mon navigateur sur : demo.res.ch</br></br>
 
 ## Step 5: Dynamic reverse proxy configuration
 Cette partie propose une solution au principal problème de l'étape 3 concernant la configuration des addresses IP. 
@@ -35,6 +37,7 @@ Cette partie propose une solution au principal problème de l'étape 3 concernan
 Grâce au script php ```config-template```, lors du lancement d'un contenaire, le fichier ```001-reverse-proxy.conf``` va être réecris avec les variables d'environnements passé en paramêtre lors du lancement du contenaire. C'est dans ce fichier qu'était "hard codé" les addresses IP de notre seveur statique et dynamique. Pour lancer le contenaire avec une configuration fonctionnelles il faut maintenant spécifié  le paramètre ```-e``` pour chaque addresses IP. 
 </br></br>
 Par exemple : ``` sudo docker run -d -e STATIC_APP=172.17.0.2 -e DYNAMIC_APP=172.17.0.4 res/apache_rp``` </br></br>
+Afin de conntrôler le bon fonctionnement de tout cela, je me suis connecter dans mon navigateur sur : demo.res.ch</br></br>
 
 ## Additional steps to get extra points on top of the "base" grade
 ### Load balancing: multiple server nodes (0.5pt)
